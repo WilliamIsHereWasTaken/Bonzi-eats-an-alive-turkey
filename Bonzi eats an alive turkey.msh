@@ -1,0 +1,75 @@
+[MASH Script]
+Version=7.5
+
+[Characters]
+Peedy=Peedy.acs
+Bonzi=Bonzi.acs
+Birdie=Birdie.acs
+
+[LanguageIDs]
+Peedy=&H409
+Bonzi=&H409
+Birdie=&H409
+
+[Script]
+Peedy.MoveTo 1068, 258
+Peedy.TTSModeID = "{CA141FD0-AC7F-11D1-97A3-006008273001}"
+Peedy.Show
+Set Req = Peedy.Speak("Bonzi, have you got the turkey?")
+WaitFor Req
+Bonzi.MoveTo 308, 156
+Bonzi.TTSModeID = "{CA141FD0-AC7F-11D1-97A3-006008273001}"
+Bonzi.Show
+Set Req = Bonzi.Speak("Peedy, I have the turkey!")
+WaitFor Req
+Birdie.MoveTo 526, 192
+Birdie.TTSModeID = "{CA141FD0-AC7F-11D1-97A3-006008273000}"
+Set Req = Birdie.Show()
+WaitFor Req
+Peedy.Speak "Wow! That is great!"
+Set Req = Peedy.Speak("Make sure to cook it before you eat it, okay?")
+WaitFor Req
+Set Req = Bonzi.Speak("Okay.")
+WaitFor Req
+Set Req = Peedy.Hide()
+WaitFor Req
+Set Req = Bonzi.Speak("I’m gonna eat you, turkey!")
+WaitFor Req
+Birdie.Speak "No! Please don’t eat me!"
+Birdie.MoveTo 380, 179
+Birdie.Hide
+Birdie.Show
+Birdie.MoveTo 1050, 486
+Birdie.Speak "ahhh! help!"
+Set Req = Birdie.Hide()
+WaitFor Req
+Set Req = Bonzi.Speak("Oh goddamn it, I forgot to cook the turkey!")
+WaitFor Req
+Peedy.Show
+Set Req = Peedy.Speak("Did you cook the turkey?")
+WaitFor Req
+Set Req = Bonzi.Speak("Nope, I forgot...")
+WaitFor Req
+Set Req = Peedy.Speak("BONZI, WHY DIDN’T YOU COOK THE TURKEY BUT JUST ATE IT?!?!?!?! YOU’RE SUPPOSED TO COOK THE TURKEY THEN EAT IT! SPIT THE TURKEY OUT NOW!")
+WaitFor Req
+Bonzi.Play "Sad"
+Bonzi.Speak "Okay, okay."
+Set Req = Bonzi.Play("Acknowledge")
+WaitFor Req
+Birdie.Show
+Birdie.MoveTo 427, 179
+Set Req = Birdie.MoveTo(483, 220)
+WaitFor Req
+Peedy.Speak "Ugh, cook the turkey like I told you to earlier."
+Set Req = Peedy.Hide()
+WaitFor Req
+Set Req = Birdie.Hide()
+WaitFor Req
+Bonzi.Hide
+
+[Commands]
+MenuName=MASH Menu
+ACO=Advanced Character Options|~|Advanced Character Options
+
+[CommandScript:ACO]
+AgentControl.PropertySheet.Visible = True
